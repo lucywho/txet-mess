@@ -6,7 +6,6 @@
 body {
     height: 100%;
     height: 100vh;
-
     max-height: 100%;
     height: 100vh;
 }
@@ -36,7 +35,9 @@ button:focus {
     color: white;
     font-family: "Indie Flower", cursive;
     font-size: 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     width: 100vw;
     height: 10%;
@@ -77,12 +78,14 @@ footer {
     display: flex;
     height: 5%;
     justify-content: left;
+    width: 100%;
 }
 
 footer > p {
     cursor: pointer;
     margin-left: 15px;
     padding: 1px;
+    bottom: 0;
 }
 
 footer > p:hover {
@@ -91,13 +94,14 @@ footer > p:hover {
 }
 
 #about {
-    background-color: navy;
-    bottom: 3vh;
+    background-color: rgba(0, 0, 128);
+    border-radius: 10px 10px 0 0;
+    bottom: 5%;
     color: white;
     height: fit-content;
-    left: 0;
-    margin-bottom: 10px;
-    padding: 0.5rem;
+    max-height: 93%;
+    overflow: auto;
+    padding: 0.5rem 15px;
     position: absolute;
     width: fit-content;
     visibility: hidden;
@@ -107,7 +111,6 @@ footer > p:hover {
 #about_text > b,
 #about_text > a {
     color: white;
-    font-size: 0.8rem;
 }
 
 #close {
@@ -155,5 +158,20 @@ footer > p:hover {
     to {
         opacity: 0%;
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 1026px) {
+    textarea {
+        min-height: 120px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    h1 {
+        font-size: 2rem;
+    }
+    textarea {
+        min-height: 120px;
     }
 }
