@@ -18,7 +18,11 @@ function messText() {
         let ins;
 
         first = word[0];
-        x = word.length - 1;
+        if (word.length <= 1) {
+            x = word.length;
+        } else {
+            x = word.length - 1;
+        }
         final = word[x];
 
         for (i = 1; i < word.length - 1; i++) {
@@ -37,17 +41,16 @@ function messText() {
 function shuffleArray(array) {
     if (array.length > 1) {
         for (let i = array.length; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
             array[i] = array[j];
             array[j] = temp;
         }
     }
+
     shufInnerStr = array.join("");
+
     shufWord.push(first, shufInnerStr, final, " ");
 
     return shufWord;
 }
-
-// array = array;
-//} else {
