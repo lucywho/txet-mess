@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "Courier New", Courier, monospace;
 }
 body {
     height: 100%;
@@ -21,7 +22,6 @@ button {
     color: navy;
     font-weight: bold;
     font-size: 16px;
-    margin: 10px;
     padding: 10px;
 }
 
@@ -47,17 +47,17 @@ button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 85%;
 }
 
-#inbox,
-#outbox {
+textarea {
+    padding: 10px 0 0 10px;
     border: 2px solid navy;
     border-radius: 10px;
     height: fit-content;
+    font-size: 16px;
     margin: 10px 0;
     min-height: 200px;
-    padding: 5px;
     width: 90%;
     width: 90vw;
 }
@@ -68,4 +68,92 @@ button:focus {
 
 #outbox {
     background-color: rgb(251, 216, 127);
+}
+
+footer {
+    align-items: center;
+    background-color: navy;
+    color: white;
+    display: flex;
+    height: 5%;
+    justify-content: left;
+}
+
+footer > p {
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 1px;
+}
+
+footer > p:hover {
+    color: navy;
+    background-color: white;
+}
+
+#about {
+    background-color: navy;
+    bottom: 3vh;
+    color: white;
+    height: fit-content;
+    left: 0;
+    margin-bottom: 10px;
+    padding: 0.5rem;
+    position: absolute;
+    width: fit-content;
+    visibility: hidden;
+}
+
+#about_text,
+#about_text > b,
+#about_text > a {
+    color: white;
+    font-size: 0.8rem;
+}
+
+#close {
+    border: white 1px solid;
+    border-radius: 5px;
+    color: whitea;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 3px;
+    width: fit-content;
+}
+
+#close:hover,
+#close:focus {
+    color: navy;
+    background-color: white;
+}
+
+.vis {
+    animation: fadeUp 1s forwards;
+}
+
+.invis {
+    animation: fadeOut 1s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0%;
+        visibility: hidden;
+    }
+    to {
+        opacity: 100%;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 100%;
+        visibility: visible;
+    }
+    to {
+        opacity: 0%;
+        visibility: hidden;
+    }
 }

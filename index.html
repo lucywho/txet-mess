@@ -14,17 +14,28 @@
     <body>
         <section id="banner"><h1>Text Mess</h1></section>
         <section id="app">
-            <textarea id="inbox"></textarea>
+            <textarea
+                id="inbox"
+                placeholder="type or paste your text here and click Mess it up..."
+            ></textarea>
 
             <button type="button" onclick="messText()">Mess it up</button>
 
-            <textarea id="outbox"></textarea>
+            <textarea
+                id="outbox"
+                placeholder="your messed text will appear here..."
+            ></textarea>
 
             <button type="button" onclick="location.reload()">
                 Mess again
             </button>
         </section>
-
-        <script src="script.js"></script>
+        <div id="about" class="none">
+            <div id="about_text"></div>
+            <div id="close" onclick="closeAbout()">close</div>
+        </div>
+        
     </body>
+    <footer><p onclick="openAbout()">About this app</p></section>
+    <script src="script.js"></script>
 </html>

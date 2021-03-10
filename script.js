@@ -1,5 +1,6 @@
 const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
+
 let shufInnerStr = "";
 let shufWord = [];
 let first = "";
@@ -54,3 +55,21 @@ function shuffleArray(array) {
 
     return shufWord;
 }
+
+//"about" code
+
+const about = document.getElementById("about");
+const aboutText = document.getElementById("about_text");
+const close = document.getElementById("close");
+
+function openAbout() {
+    about.classList.remove("invis");
+    about.classList.add("vis");
+}
+
+function closeAbout() {
+    about.classList.add("invis");
+    about.classList.remove("vis");
+}
+
+aboutText.innerHTML = `<b>What this app does</b> <br> some information here <br> <br> <b>Website</b> <br> &copy <a href="https://lucysco.de/" target="_">Lucy Toman 2021</a> <br> From an original idea by <a href="https://trashpanda.cc/" target="_">Tim Duckett </a><br><br> `;
