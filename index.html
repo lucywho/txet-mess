@@ -12,12 +12,18 @@
         <title>textmess</title>
     </head>
     <body>
-        <section id="banner">Text Mess</section>
-        <textarea id="inbox"></textarea>
+        <section id="banner"><h1>Text Mess</h1></section>
+        <section id="app">
+            <textarea id="inbox"></textarea>
 
-        <button type="button" onclick="messText()">Mess it up</button>
+            <button type="button" onclick="messText()">Mess it up</button>
 
-        <textarea id="outbox"></textarea>
+            <textarea id="outbox"></textarea>
+
+            <button type="button" onclick="location.reload()">
+                Mess again
+            </button>
+        </section>
 
         <script src="script.js"></script>
     </body>

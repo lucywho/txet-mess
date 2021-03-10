@@ -35,10 +35,8 @@ function messText() {
 }
 
 function shuffleArray(array) {
-    if (array.length < 2) {
-        console.log("array", array);
-    } else {
-        for (let i = array.length - 1; i > 0; i--) {
+    if (array.length > 1) {
+        for (let i = array.length; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var temp = array[i];
             array[i] = array[j];
@@ -50,3 +48,6 @@ function shuffleArray(array) {
 
     return shufWord;
 }
+
+// array = array;
+//} else {
