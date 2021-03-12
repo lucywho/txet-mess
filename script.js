@@ -40,8 +40,11 @@ function messText() {
 
             result = shufWord.join("");
         });
+        output.innerText = "";
+        console.log("out", output.innerText);
 
-        output.innerText = result;
+        output.value = result;
+        console.log("out after result", output.value);
     }
 }
 
