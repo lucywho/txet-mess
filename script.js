@@ -56,19 +56,24 @@ function shuffleArray(array) {
     return shufWord;
 }
 
-//"about" code
+//"more about" code
 
 const about = document.getElementById("about");
 const aboutText = document.getElementById("about_text");
+const openClose = document.getElementById("open_close");
 
-function openAbout() {
-    about.classList.remove("invis");
-    about.classList.add("vis");
-}
+openClose.innerHTML = `more about this app`;
 
-function closeAbout() {
-    about.classList.add("invis");
-    about.classList.remove("vis");
+function toggleAbout() {
+    if (!about.classList.contains("vis")) {
+        about.classList.remove("invis");
+        about.classList.add("vis");
+        openClose.innerHTML = `close`;
+    } else {
+        about.classList.add("invis");
+        about.classList.remove("vis");
+        openClose.innerHTML = `more about this app`;
+    }
 }
 
 aboutText.innerHTML = `<b>What this app does</b> <br>It is a meme universally acknowledged that a word in possession of all its letters can still be easily read if the middle letters are scrambled, because the human brain reads the whole word not the individual letters.<br> <br>
