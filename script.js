@@ -14,7 +14,6 @@ function messText() {
     let txt = input.value;
 
     if (!txt) {
-        input.innerText = "";
         output.innerHTML = `please enter some text in the pink box`;
     } else {
         let string = txt.split(" ");
@@ -42,7 +41,7 @@ function messText() {
             result = shufWord.join("");
         });
 
-        output.innerHTML = result;
+        output.innerText = result;
     }
 }
 
