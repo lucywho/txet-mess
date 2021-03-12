@@ -11,34 +11,39 @@ let final = "";
 let resultArr = [];
 
 function messText() {
-    let text = input.value;
+    let txt = input.value;
 
-    let string = text.split(" ");
+    if (!txt) {
+        input.innerText = "";
+        output.innerHTML = `please enter some text in the pink box`;
+    } else {
+        let string = txt.split(" ");
 
-    string.forEach((item) => {
-        let word = item.split("");
-        let inner = [];
-        let ins;
+        string.forEach((item) => {
+            let word = item.split("");
+            let inner = [];
+            let ins;
 
-        first = word[0];
-        if (word.length <= 1) {
-            x = word.length;
-        } else {
-            x = word.length - 1;
-        }
-        final = word[x];
+            first = word[0];
+            if (word.length <= 1) {
+                x = word.length;
+            } else {
+                x = word.length - 1;
+            }
+            final = word[x];
 
-        for (i = 1; i < word.length - 1; i++) {
-            ins = word[i];
-            inner.push(ins);
-        }
+            for (i = 1; i < word.length - 1; i++) {
+                ins = word[i];
+                inner.push(ins);
+            }
 
-        shuffleArray(inner);
+            shuffleArray(inner);
 
-        result = shufWord.join("");
-    });
+            result = shufWord.join("");
+        });
 
-    output.innerHTML = result;
+        output.innerHTML = result;
+    }
 }
 
 function shuffleArray(array) {
