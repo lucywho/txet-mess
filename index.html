@@ -21,16 +21,14 @@
                 placeholder="type or paste your text here and click Mess it up..."
             ></textarea>
 
-            <button type="button" onclick="messText()">Mess it up</button>
+            <div id="mess_button" class="vis"></div>
 
             <textarea
                 id="outbox"
                 placeholder="your messed up text will appear here..."
             ></textarea>
 
-            <button type="button" onclick="location.reload()">
-                Mess again
-            </button>
+            <div id="again_button" class="hidden"></div>
         </section>
         <div id="about" class="none">
             <div id="about_text"></div>
