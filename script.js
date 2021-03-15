@@ -27,10 +27,16 @@ let first = "";
 let x;
 let final = "";
 let resultArr = [];
+let start = [""];
+let end = [""];
 
 function messText() {
     let txt = input.value;
-    txt = txt.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+    //txt = txt.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+    //matches everything that is not a word or space
+    //matches everything that a space (replaces multiples with single)
+    txt = txt.replace(/\s+/g, " ");
+    let punct = txt.match(/[^\w\s]|_/g);
 
     if (!txt) {
         output.innerHTML = `please enter some text in the pink box`;
@@ -42,20 +48,61 @@ function messText() {
 
         stringArr.forEach((item) => {
             let word = item.split("");
+
             let inner = [];
+            let flag1 = false;
+            let flag2 = false;
             let ins;
 
-            first = word[0];
             if (word.length <= 1) {
                 x = word.length;
             } else {
                 x = word.length - 1;
             }
-            final = word[x];
 
-            for (i = 1; i < word.length - 1; i++) {
-                ins = word[i];
-                inner.push(ins);
+            if (punct.includes(word[0])) {
+                first = word[1];
+                flag1 = true;
+                start = word[0];
+            } else {
+                first = word[0];
+            }
+
+            if (punct.includes(word[x])) {
+                y = x - 1;
+                final = word[y];
+                flag2 = true;
+                end = word[x];
+            } else {
+                final = word[x];
+            }
+
+            if (flag1) {
+                if (flag2) {
+                    for (i = 2; i < word.length - 2; i++) {
+                        ins = word[i];
+                        inner.push(ins);
+                    }
+                } else {
+                    for (i = 2; i < word.length - 1; i++) {
+                        ins = word[i];
+                        inner.push(ins);
+                    }
+                }
+            }
+
+            if (!flag1) {
+                if (flag2) {
+                    for (i = 1; i < word.length - 2; i++) {
+                        ins = word[i];
+                        inner.push(ins);
+                    }
+                } else {
+                    for (i = 1; i < word.length - 1; i++) {
+                        ins = word[i];
+                        inner.push(ins);
+                    }
+                }
             }
 
             shuffleArray(inner);
