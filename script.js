@@ -26,17 +26,15 @@ let shufWord = [];
 let first = "";
 let x;
 let final = "";
+let startChar = "";
+let endChar = "";
 let resultArr = [];
-let start = [""];
-let end = [""];
 
 function messText() {
-    let txt = input.value;
-    //txt = txt.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-    //matches everything that is not a word or space
+    let txt = input.value.replace(/\s+/g, " ");
     //matches everything that a space (replaces multiples with single)
-    txt = txt.replace(/\s+/g, " ");
     let punct = txt.match(/[^\w\s]|_/g);
+    //matches everything that is not a word or space
 
     if (!txt) {
         output.innerHTML = `please enter some text in the pink box`;
@@ -46,12 +44,11 @@ function messText() {
 
         let stringArr = txt.split(" ");
 
-        stringArr.forEach((item) => {
-            let word = item.split("");
-
+        stringArr.forEach((word) => {
+            startChar = "";
+            endChar = "";
             let inner = [];
-            let flag1 = false;
-            let flag2 = false;
+
             let ins;
 
             if (word.length <= 1) {
@@ -62,8 +59,7 @@ function messText() {
 
             if (punct.includes(word[0])) {
                 first = word[1];
-                flag1 = true;
-                start = word[0];
+                startChar = word.slice(0, 1);
             } else {
                 first = word[0];
             }
@@ -71,14 +67,13 @@ function messText() {
             if (punct.includes(word[x])) {
                 y = x - 1;
                 final = word[y];
-                flag2 = true;
-                end = word[x];
+                endChar = word.slice(-1);
             } else {
                 final = word[x];
             }
 
-            if (flag1) {
-                if (flag2) {
+            if (startChar) {
+                if (endChar) {
                     for (i = 2; i < word.length - 2; i++) {
                         ins = word[i];
                         inner.push(ins);
@@ -91,8 +86,8 @@ function messText() {
                 }
             }
 
-            if (!flag1) {
-                if (flag2) {
+            if (!startChar) {
+                if (endChar) {
                     for (i = 1; i < word.length - 2; i++) {
                         ins = word[i];
                         inner.push(ins);
@@ -129,7 +124,7 @@ function shuffleArray(array) {
 
     shufInnerStr = array.join("");
 
-    shufWord.push(first, shufInnerStr, final, " ");
+    shufWord.push(startChar, first, shufInnerStr, final, endChar, " ");
 
     return shufWord;
 }
