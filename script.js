@@ -20,6 +20,11 @@ function againGone() {
 
 const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
+const outInfo = document.getElementById("outbox-info");
+const inInfo = document.getElementById("inbox-info");
+
+inInfo.innerText = `type or paste your text here and click the "Mess it up" button`;
+outInfo.innerText = `your messed up text will appear here`;
 
 let shufInnerStr = "";
 let shufWord = [];
@@ -32,12 +37,18 @@ let resultArr = [];
 
 function messText() {
     let txt = input.value.replace(/\s+/g, " ");
+    console.log("txt: ", txt);
     //matches everything that a space (replaces multiples with single)
     let punct = txt.match(/[^\w\s]|_/g);
     //matches everything that is not a word or space
 
+    if (punct == null) {
+        punct = [];
+    }
+
     if (!txt) {
-        output.innerHTML = `please enter some text in the pink box`;
+        outInfo.innerText = "please enter some text in the pink box";
+        console.log("no text");
     } else {
         messButton.classList.add("invis");
         messButton.classList.remove("vis");

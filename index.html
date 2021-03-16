@@ -16,16 +16,27 @@
         <section id="banner"><h1>Txet Mess</h1></section>
         <section id="intro">This app tests the hypothesis that reading comprehension is not affected by letter order so long as the first and last letters of a word remain in place.</section>
         <section id="app">
+            <div class="in-label">
+            <label for ="inbox">your text: </label>
+            <p id = "inbox-info"></p>
+        </div>
             <textarea
                 id="inbox"
-                placeholder="type or paste your text here and click Mess it up..."
-            ></textarea>
+                aria-describedby="inbox-info">
+            </textarea>
 
             <div id="mess_button" class="vis"></div>
 
-            <textarea
+            <div class="out-label">
+            <label for = "outbox">messed text: </label>
+            <p id = "outbox-info"></p>
+        </div>
+            <textarea readonly
+            
                 id="outbox"
-                placeholder="your messed up text will appear here..."
+                aria-describedby="outbox-info"
+                
+                
             ></textarea>
 
             <div id="again_button" class="hidden"></div>

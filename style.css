@@ -61,6 +61,10 @@ h1 {
     height: 80%;
 }
 
+label {
+    font-weight: bold;
+}
+
 button {
     background-color: #d6d6ff;
     border: 2px solid navy;
@@ -89,12 +93,27 @@ textarea {
     width: 90vw;
 }
 
+p {
+    font-style: italic;
+}
+
 #inbox {
     background-color: #e6aace;
 }
 
 #outbox {
     background-color: #fbd87f;
+}
+
+.in-label,
+.out-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 90%;
+    width: 90vw;
+    margin-top: 1%;
+    border-radius: 10px;
 }
 
 /* "about" modal*/
