@@ -1,7 +1,11 @@
-// button code
-
+const input = document.getElementById("inbox");
+const output = document.getElementById("outbox");
+const outInfo = document.getElementById("outbox-info");
+const inInfo = document.getElementById("inbox-info");
 const messButton = document.getElementById("mess_button");
 const againButton = document.getElementById("again_button");
+
+// button code
 
 messButton.innerHTML =
     '<button type="button" onclick="messText()">mess it up</button>';
@@ -12,17 +16,15 @@ againButton.innerHTML =
 function againGone() {
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
+    messButton.classList.add("vis");
+    messButton.classList.remove("invis");
 
-    location.reload();
+    input.value = "";
+    output.value = "";
 }
-
 //label code
-const input = document.getElementById("inbox");
-const output = document.getElementById("outbox");
-const outInfo = document.getElementById("outbox-info");
-const inInfo = document.getElementById("inbox-info");
 
-inInfo.innerText = `type or paste your text here and click the "Mess it up" button`;
+inInfo.innerText = `type or paste your text here and click the "mess it up" button`;
 outInfo.innerText = `your messed up text will appear here`;
 
 // word scramble code
@@ -42,12 +44,13 @@ function messText() {
     let punct = txt.match(/[^\w\s]|_/g);
     //matches everything that is not a word or space
 
-    if (!txt) {
-        console.log("no text");
+    if (txt == 0) {
         outInfo.innerText = "please enter some text in the pink box";
     } else {
         messButton.classList.add("invis");
         messButton.classList.remove("vis");
+        againButton.classList.remove("invis");
+        againButton.classList.add("vis");
 
         outInfo.innerText = `click mess again to mess up some more text`;
 
