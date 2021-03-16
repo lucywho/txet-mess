@@ -4,10 +4,10 @@ const messButton = document.getElementById("mess_button");
 const againButton = document.getElementById("again_button");
 
 messButton.innerHTML =
-    '<button type="button" onclick="messText()">Mess it up</button>';
+    '<button type="button" onclick="messText()">mess it up</button>';
 
 againButton.innerHTML =
-    '<button type="button" onclick="againGone()">Mess again</button>';
+    '<button type="button" onclick="againGone()">mess again</button>';
 
 function againGone() {
     againButton.classList.remove("vis");
@@ -48,6 +48,8 @@ function messText() {
     } else {
         messButton.classList.add("invis");
         messButton.classList.remove("vis");
+
+        outInfo.innerText = `click mess again to mess up some more text`;
 
         if (punct == null) {
             punct = [];
