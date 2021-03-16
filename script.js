@@ -2,10 +2,10 @@ const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
 const outInfo = document.getElementById("outbox-info");
 const inInfo = document.getElementById("inbox-info");
-const messButton = document.getElementById("mess_button");
-const againButton = document.getElementById("again_button");
 
 // button code
+const messButton = document.getElementById("mess_button");
+const againButton = document.getElementById("again_button");
 
 messButton.innerHTML =
     '<button type="button" onclick="messText()">mess it up</button>';
@@ -22,8 +22,7 @@ function againGone() {
     input.value = "";
     output.value = "";
 }
-//label code
-
+// label code
 inInfo.innerText = `type or paste your text here and click the "mess it up" button`;
 outInfo.innerText = `your messed up text will appear here`;
 
@@ -31,18 +30,14 @@ outInfo.innerText = `your messed up text will appear here`;
 let shufInnerStr = "";
 let shufWord = [];
 let first = "";
-let x;
 let final = "";
-let startChar = "";
-let endChar = "";
-let resultArr = [];
+let startChar;
+let endChar;
 
 function messText() {
+    shufWord = [];
     let txt = input.value.replace(/\s+/g, " ");
-    console.log("txt: ", txt);
-    //matches everything that a space (replaces multiples with single)
     let punct = txt.match(/[^\w\s]|_/g);
-    //matches everything that is not a word or space
 
     if (txt == 0) {
         outInfo.innerText = "please enter some text in the pink box";
@@ -61,6 +56,7 @@ function messText() {
         let stringArr = txt.split(" ");
 
         stringArr.forEach((word) => {
+            let x;
             startChar = "";
             endChar = "";
             let inner = [];
@@ -145,7 +141,7 @@ function shuffleArray(array) {
     return shufWord;
 }
 
-//"more about" code
+// "more about" code
 
 const about = document.getElementById("about");
 const aboutText = document.getElementById("about_text");
