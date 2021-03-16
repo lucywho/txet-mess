@@ -16,8 +16,7 @@ function againGone() {
     location.reload();
 }
 
-// word scramble code
-
+//label code
 const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
 const outInfo = document.getElementById("outbox-info");
@@ -26,6 +25,7 @@ const inInfo = document.getElementById("inbox-info");
 inInfo.innerText = `type or paste your text here and click the "Mess it up" button`;
 outInfo.innerText = `your messed up text will appear here`;
 
+// word scramble code
 let shufInnerStr = "";
 let shufWord = [];
 let first = "";
@@ -42,16 +42,16 @@ function messText() {
     let punct = txt.match(/[^\w\s]|_/g);
     //matches everything that is not a word or space
 
-    if (punct == null) {
-        punct = [];
-    }
-
     if (!txt) {
-        outInfo.innerText = "please enter some text in the pink box";
         console.log("no text");
+        outInfo.innerText = "please enter some text in the pink box";
     } else {
         messButton.classList.add("invis");
         messButton.classList.remove("vis");
+
+        if (punct == null) {
+            punct = [];
+        }
 
         let stringArr = txt.split(" ");
 
