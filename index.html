@@ -16,30 +16,35 @@
         <section id="banner"><h1>Txet Mess</h1></section>
         <section id="intro">This app tests the hypothesis that reading comprehension is not affected by letter order so long as the first and last letters of a word remain in place.</section>
         <section id="app">
-            <div class="in-label">
-            <label for ="inbox">your text: </label>
-            <p id = "inbox-info"></p>
-        </div>
-            <textarea
-                id="inbox"
-                aria-describedby="inbox-info">
-            </textarea>
+            <section id="in">
+                <div id="in-label_inbox">
+                    <div class="in-label">
+                        <label for ="inbox">your text: </label>
+                        <p id = "inbox-info"></p>
+                    </div>
+                    <textarea
+                        id="inbox"
+                        aria-describedby="inbox-info">
+                    </textarea>
+                </div>
 
-            <div id="mess_button" class="vis"></div>
+                <div id="mess_button" class="vis"></div>
+            </section>
 
-            <div class="out-label">
-            <label for = "outbox">messed text: </label>
-            <p id = "outbox-info"></p>
-        </div>
-            <textarea aria-readonly="true"
-            tabindex="-1"
-                id="outbox"
-                aria-describedby="outbox-info"
-                
-                
-            ></textarea>
-
-            <div id="again_button" class="hidden"></div>
+            <section id="out">
+                <div id="out-label_outbox">
+                    <div class="out-label">
+                        <label for = "outbox">messed text: </label>
+                        <p id = "outbox-info"></p>
+                    </div>
+                    <textarea aria-readonly="true"
+                        tabindex="-1"
+                        id="outbox"
+                        aria-describedby="outbox-info">
+                    </textarea>
+                </div>
+                <div id="again_button" class="hidden"></div>
+            </section>
         </section>
         <div id="about" class="none">
             <div id="about_text"></div>
