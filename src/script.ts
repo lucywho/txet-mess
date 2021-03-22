@@ -2,10 +2,14 @@ const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
 const outInfo = document.getElementById("outbox-info");
 const inInfo = document.getElementById("inbox-info");
+let inputValue: string = (<HTMLInputElement>input).value;
+let outputValue: string = (<HTMLInputElement>output).value;
 
 // button code
-const messButton = document.getElementById("mess_button");
-const againButton = document.getElementById("again_button");
+const messButtonId = document.getElementById("mess_button");
+let messButton: HTMLElement = <HTMLInputElement>messButtonId;
+const againButtonId = document.getElementById("again_button");
+let againButton: HTMLElement = <HTMLInputElement>againButtonId;
 
 messButton.innerHTML =
     '<button type="button" onclick="messText()">mess it up</button>';
@@ -19,27 +23,27 @@ function againGone() {
     messButton.classList.add("vis");
     messButton.classList.remove("invis");
 
-    input.value = "";
-    output.value = "";
+    inputValue = "";
+    outputValue = "";
 }
 // label code
 inInfo.innerText = `type or paste your text here and click the "mess it up" button`;
 outInfo.innerText = `your messed up text will appear here`;
 
 // word scramble code
-let shufInnerStr = "";
-let shufWord = [];
-let first = "";
-let final = "";
-let startChar;
-let endChar;
+let shufInnerStr: string = "";
+let shufWord: string[] = [];
+let first: string = "";
+let final: string = "";
+let startChar: string;
+let endChar: string;
 
 function messText() {
     shufWord = [];
-    let txt = input.value.replace(/\s+/g, " ");
-    let punct = txt.match(/[^\w\s]|_/g);
+    let txt: string = inputValue.replace(/\s+/g, " ");
+    let punct: string[] = txt.match(/[^\w\s]|_/g);
 
-    if (txt == 0) {
+    if (txt == "") {
         outInfo.innerText = "please enter some text in the pink box";
     } else {
         messButton.classList.add("invis");
@@ -54,14 +58,16 @@ function messText() {
         }
 
         let stringArr = txt.split(" ");
+        let result: string;
 
         stringArr.forEach((word) => {
-            let x;
+            let x: number;
+            let y: number;
             startChar = "";
             endChar = "";
-            let inner = [];
+            let inner: string[] = [];
 
-            let ins;
+            let ins: string;
 
             if (word.length <= 1) {
                 x = word.length;
@@ -86,12 +92,12 @@ function messText() {
 
             if (startChar) {
                 if (endChar) {
-                    for (i = 2; i < word.length - 2; i++) {
+                    for (let i = 2; i < word.length - 2; i++) {
                         ins = word[i];
                         inner.push(ins);
                     }
                 } else {
-                    for (i = 2; i < word.length - 1; i++) {
+                    for (let i = 2; i < word.length - 1; i++) {
                         ins = word[i];
                         inner.push(ins);
                     }
@@ -100,12 +106,12 @@ function messText() {
 
             if (!startChar) {
                 if (endChar) {
-                    for (i = 1; i < word.length - 2; i++) {
+                    for (let i = 1; i < word.length - 2; i++) {
                         ins = word[i];
                         inner.push(ins);
                     }
                 } else {
-                    for (i = 1; i < word.length - 1; i++) {
+                    for (let i = 1; i < word.length - 1; i++) {
                         ins = word[i];
                         inner.push(ins);
                     }
@@ -117,7 +123,7 @@ function messText() {
             result = shufWord.join("");
         });
 
-        output.value = result;
+        outputValue = result;
 
         againButton.classList.add("vis");
         againButton.classList.remove("hidden");
