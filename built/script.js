@@ -28,14 +28,11 @@ var final = "";
 var startChar;
 var endChar;
 function messText() {
-    console.log("mess text fires");
     inputValue = input.value;
     outputValue = output.value;
     shufWord = [];
     var txt = inputValue.replace(/\s+/g, " ");
-    console.log("txt", txt);
     var punct = txt.match(/[^\w\s]|_/g);
-    console.log("punc", punct);
     if (txt == "") {
         outInfo.innerText = "please enter some text in the pink box";
     }
