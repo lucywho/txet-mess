@@ -2,35 +2,35 @@ var input = document.getElementById("inbox");
 var output = document.getElementById("outbox");
 var outInfo = document.getElementById("outbox-info");
 var inInfo = document.getElementById("inbox-info");
-var inputValue = input.value;
-var outputValue = output.value;
+var inputValue;
+var outputValue;
 // button code
 var messButton = document.getElementById("mess_button");
 var againButton = document.getElementById("again_button");
 messButton.innerHTML = "mess it up";
 againButton.innerHTML = "mess again";
 function againGone() {
-    console.log("againGone fires");
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
     messButton.classList.add("vis");
     messButton.classList.remove("invis");
-    inputValue = "";
-    outputValue = "";
+    input.value = "";
+    output.value = "";
 }
 // label code
 inInfo.innerHTML = "type or paste your text here and click the \"mess it up\" button";
 outInfo.innerHTML = "your messed up text will appear here";
 // word scramble code
 var shufInnerStr = "";
-var shufWord;
+var shufWord = [];
 var first = "";
 var final = "";
 var startChar;
 var endChar;
 function messText() {
     console.log("mess text fires");
-    console.log("input value,", this.inputValue);
+    inputValue = input.value;
+    outputValue = output.value;
     shufWord = [];
     var txt = inputValue.replace(/\s+/g, " ");
     console.log("txt", txt);
@@ -109,7 +109,7 @@ function messText() {
             shuffleArray(inner);
             result_1 = shufWord.join("");
         });
-        outputValue = result_1;
+        output.value = result_1;
         againButton.classList.add("vis");
         againButton.classList.remove("hidden");
     }

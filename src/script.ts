@@ -2,8 +2,8 @@ const input = document.getElementById("inbox");
 const output = document.getElementById("outbox");
 const outInfo = document.getElementById("outbox-info");
 const inInfo = document.getElementById("inbox-info");
-let inputValue: string = (<HTMLInputElement>input).value;
-let outputValue: string = (<HTMLInputElement>output).value;
+let inputValue: string;
+let outputValue: string;
 
 // button code
 const messButton: HTMLElement = document.getElementById("mess_button");
@@ -14,14 +14,13 @@ messButton.innerHTML = "mess it up";
 againButton.innerHTML = "mess again";
 
 function againGone(): any {
-    console.log("againGone fires");
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
     messButton.classList.add("vis");
     messButton.classList.remove("invis");
 
-    inputValue = "";
-    outputValue = "";
+    (<HTMLInputElement>input).value = "";
+    (<HTMLInputElement>output).value = "";
 }
 // label code
 inInfo.innerHTML = `type or paste your text here and click the "mess it up" button`;
@@ -29,7 +28,7 @@ outInfo.innerHTML = `your messed up text will appear here`;
 
 // word scramble code
 let shufInnerStr: string = "";
-let shufWord;
+let shufWord: string[] = [];
 let first: string = "";
 let final: string = "";
 let startChar: string;
@@ -37,7 +36,8 @@ let endChar: string;
 
 function messText(): any {
     console.log("mess text fires");
-    console.log("input value,", this.inputValue);
+    inputValue = (<HTMLInputElement>input).value;
+    outputValue = (<HTMLInputElement>output).value;
     shufWord = [];
     let txt = inputValue.replace(/\s+/g, " ");
     console.log("txt", txt);
@@ -124,7 +124,7 @@ function messText(): any {
             result = shufWord.join("");
         });
 
-        outputValue = result;
+        (<HTMLInputElement>output).value = result;
 
         againButton.classList.add("vis");
         againButton.classList.remove("hidden");
