@@ -8,13 +8,7 @@ var outputValue = output.value;
 var messButton = document.getElementById("mess_button");
 var againButton = document.getElementById("again_button");
 messButton.innerHTML = "mess it up";
-messButton.addEventListener("click", function () {
-    messText();
-});
 againButton.innerHTML = "mess again";
-againButton.addEventListener("click", function () {
-    againGone();
-});
 function againGone() {
     console.log("againGone fires");
     againButton.classList.remove("vis");
@@ -29,16 +23,19 @@ inInfo.innerHTML = "type or paste your text here and click the \"mess it up\" bu
 outInfo.innerHTML = "your messed up text will appear here";
 // word scramble code
 var shufInnerStr = "";
-var shufWord = [];
+var shufWord;
 var first = "";
 var final = "";
 var startChar;
 var endChar;
 function messText() {
     console.log("mess text fires");
+    console.log("input value,", this.inputValue);
     shufWord = [];
     var txt = inputValue.replace(/\s+/g, " ");
+    console.log("txt", txt);
     var punct = txt.match(/[^\w\s]|_/g);
+    console.log("punc", punct);
     if (txt == "") {
         outInfo.innerText = "please enter some text in the pink box";
     }

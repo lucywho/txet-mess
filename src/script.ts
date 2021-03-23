@@ -10,16 +10,10 @@ const messButton: HTMLElement = document.getElementById("mess_button");
 const againButton: HTMLElement = document.getElementById("again_button");
 
 messButton.innerHTML = "mess it up";
-messButton.addEventListener("click", function () {
-    messText();
-});
 
 againButton.innerHTML = "mess again";
-againButton.addEventListener("click", function () {
-    againGone();
-});
 
-function againGone() {
+function againGone(): any {
     console.log("againGone fires");
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
@@ -35,17 +29,20 @@ outInfo.innerHTML = `your messed up text will appear here`;
 
 // word scramble code
 let shufInnerStr: string = "";
-let shufWord: string[] = [];
+let shufWord;
 let first: string = "";
 let final: string = "";
 let startChar: string;
 let endChar: string;
 
-function messText() {
+function messText(): any {
     console.log("mess text fires");
+    console.log("input value,", this.inputValue);
     shufWord = [];
-    let txt: string = inputValue.replace(/\s+/g, " ");
-    let punct: string[] = txt.match(/[^\w\s]|_/g);
+    let txt = inputValue.replace(/\s+/g, " ");
+    console.log("txt", txt);
+    let punct = txt.match(/[^\w\s]|_/g);
+    console.log("punc", punct);
 
     if (txt == "") {
         outInfo.innerText = "please enter some text in the pink box";
@@ -69,7 +66,7 @@ function messText() {
             let y: number;
             startChar = "";
             endChar = "";
-            let inner: string[] = [];
+            let inner: Array<string> = [];
 
             let ins: string;
 
