@@ -6,16 +6,18 @@ let inputValue: string = (<HTMLInputElement>input).value;
 let outputValue: string = (<HTMLInputElement>output).value;
 
 // button code
-//const messButtonId = document.getElementById("mess_button");
-let messButton: HTMLElement = document.getElementById("mess_button");
-//const againButtonId = document.getElementById("again_button");
-let againButton: HTMLElement = document.getElementById("again_button");
+const messButton: HTMLElement = document.getElementById("mess_button");
+const againButton: HTMLElement = document.getElementById("again_button");
 
-messButton.innerHTML =
-    '<button type="button" onclick="messText()">mess it up</button>';
+messButton.innerHTML = "mess it up";
+messButton.addEventListener("click", function () {
+    messText();
+});
 
-againButton.innerHTML =
-    '<button type="button" onclick="againGone()">mess again</button>';
+againButton.innerHTML = "mess again";
+againButton.addEventListener("click", function () {
+    againGone();
+});
 
 function againGone() {
     againButton.classList.remove("vis");
@@ -39,6 +41,7 @@ let startChar: string;
 let endChar: string;
 
 function messText() {
+    console.log("mess text fires");
     shufWord = [];
     let txt: string = inputValue.replace(/\s+/g, " ");
     let punct: string[] = txt.match(/[^\w\s]|_/g);

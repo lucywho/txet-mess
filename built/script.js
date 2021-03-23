@@ -5,14 +5,16 @@ var inInfo = document.getElementById("inbox-info");
 var inputValue = input.value;
 var outputValue = output.value;
 // button code
-//const messButtonId = document.getElementById("mess_button");
 var messButton = document.getElementById("mess_button");
-//const againButtonId = document.getElementById("again_button");
 var againButton = document.getElementById("again_button");
-messButton.innerHTML =
-    '<button type="button" onclick="messText()">mess it up</button>';
-againButton.innerHTML =
-    '<button type="button" onclick="againGone()">mess again</button>';
+messButton.innerHTML = "mess it up";
+messButton.addEventListener("click", function () {
+    messText();
+});
+againButton.innerHTML = "mess again";
+againButton.addEventListener("click", function () {
+    againGone();
+});
 function againGone() {
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
@@ -32,6 +34,7 @@ var final = "";
 var startChar;
 var endChar;
 function messText() {
+    console.log("mess text fires");
     shufWord = [];
     var txt = inputValue.replace(/\s+/g, " ");
     var punct = txt.match(/[^\w\s]|_/g);
