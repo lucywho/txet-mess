@@ -16,6 +16,7 @@ againButton.addEventListener("click", function () {
     againGone();
 });
 function againGone() {
+    console.log("againGone fires");
     againButton.classList.remove("vis");
     againButton.classList.add("invis");
     messButton.classList.add("vis");
@@ -24,8 +25,8 @@ function againGone() {
     outputValue = "";
 }
 // label code
-inInfo.innerText = "type or paste your text here and click the \"mess it up\" button";
-outInfo.innerText = "your messed up text will appear here";
+inInfo.innerHTML = "type or paste your text here and click the \"mess it up\" button";
+outInfo.innerHTML = "your messed up text will appear here";
 // word scramble code
 var shufInnerStr = "";
 var shufWord = [];
