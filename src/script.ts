@@ -6,10 +6,10 @@ let inputValue: string = (<HTMLInputElement>input).value;
 let outputValue: string = (<HTMLInputElement>output).value;
 
 // button code
-const messButtonId = document.getElementById("mess_button");
-let messButton: HTMLElement = <HTMLInputElement>messButtonId;
-const againButtonId = document.getElementById("again_button");
-let againButton: HTMLElement = <HTMLInputElement>againButtonId;
+//const messButtonId = document.getElementById("mess_button");
+let messButton: HTMLElement = document.getElementById("mess_button");
+//const againButtonId = document.getElementById("again_button");
+let againButton: HTMLElement = document.getElementById("again_button");
 
 messButton.innerHTML =
     '<button type="button" onclick="messText()">mess it up</button>';

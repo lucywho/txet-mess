@@ -5,10 +5,10 @@ var inInfo = document.getElementById("inbox-info");
 var inputValue = input.value;
 var outputValue = output.value;
 // button code
-var messButtonId = document.getElementById("mess_button");
-var messButton = messButtonId;
-var againButtonId = document.getElementById("again_button");
-var againButton = againButtonId;
+//const messButtonId = document.getElementById("mess_button");
+var messButton = document.getElementById("mess_button");
+//const againButtonId = document.getElementById("again_button");
+var againButton = document.getElementById("again_button");
 messButton.innerHTML =
     '<button type="button" onclick="messText()">mess it up</button>';
 againButton.innerHTML =
